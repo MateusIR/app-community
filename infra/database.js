@@ -13,16 +13,14 @@ async function query(queryObject) {
     await client.end();
   }
 }
-  function getSSLvalue() {
-    if (process.env.POSTGRES_CA) {
-      return {
-        ca: process.env.POSTGRES_CA,
-      };
-    }
-    return process.env.NODE_ENV === "production" ? true : false
+function getSSLvalue() {
+  if (process.env.POSTGRES_CA) {
+    return {
+      ca: process.env.POSTGRES_CA,
+    };
   }
-
-
+  return process.env.NODE_ENV === "production" ? true : false;
+}
 
 async function getNewClient() {
   const client = new Client({
@@ -34,9 +32,8 @@ async function getNewClient() {
     ssl: getSSLvalue(),
   });
 
-await client.connect();
-return client;
-
+  await client.connect();
+  return client;
 }
 
 export default {
