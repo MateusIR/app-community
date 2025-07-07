@@ -16,7 +16,7 @@ function DBStatus(){
   }
   
   return(
-  <div>gi
+  <div>
     <h1>Status do DB</h1>
     Versão do DB: <strong>{dbVersionText}</strong><br></br>
     Conexões abertas: <strong>{dbConnectionsText}</strong> <br></br>
